@@ -3,21 +3,15 @@ using namespace std;
 namespace ariel{ 
     class TreeNode{
     public:
-        TreeNode(int value);       
-        ~TreeNode(); 
-        int value;
-
-
-
-
-
-
+        TreeNode(int val);       
+        ~TreeNode();
+        TreeNode getLeft();
+        TreeNode getRight();
+        int getValue();
     private:
-        
-        TreeNode* _left;
-        TreeNode* _right;
-        
-        
+        TreeNode* _left=nullptr;
+        TreeNode* _right=nullptr;
+        int value;
     }   
     class Tree{
     public:
@@ -37,6 +31,4 @@ namespace ariel{
     private: 
         TreeNode* root;   
         };
-
-
 }
