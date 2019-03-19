@@ -12,7 +12,7 @@ namespace ariel{
         TreeNode* _left=nullptr;
         TreeNode* _right=nullptr;
         int value;
-    }   
+    };  
     class Tree{
     public:
         Tree();
