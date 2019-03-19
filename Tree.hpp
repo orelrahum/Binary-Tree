@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
-namespace ariel{ //מרחב שב
+namespace ariel{ 
     class TreeNode{
     public:
-        TreeNode(int value); //בנאי      
-        ~TreeNode(); //שיחרור זיכרון
+        TreeNode(int value);       
+        ~TreeNode(); 
         int value;
 
 
