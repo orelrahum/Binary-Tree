@@ -29,6 +29,6 @@ namespace ariel{
 
 
     private: 
-        TreeNode* root;   
+        TreeNode* TreeRoot;   
         };
 }
