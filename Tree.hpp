@@ -5,12 +5,16 @@ namespace ariel{
     public:
         TreeNode(int val);       
         ~TreeNode();
-        TreeNode getLeft();
-        TreeNode getRight();
         int getValue();
+        int Parent();
+        int left(int i);
+        int right(int i);
+        bool contains(int i);
+        int size();
+        void print();
+         Tree* _left;
+        Tree* _right;
     private:
-        TreeNode* _left=nullptr;
-        TreeNode* _right=nullptr;
         int value;
     };  
     class Tree{
