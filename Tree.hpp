@@ -7,12 +7,8 @@ namespace ariel{
         ~TreeNode();
         int getValue();
         int Parent();
-        int left(int i);
-        int right(int i);
-        bool contains(int i);
-        int size();
         void print();
-         Tree* _left;
+        Tree* _left;
         Tree* _right;
     private:
         int value;
