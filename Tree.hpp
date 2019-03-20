@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 namespace ariel{ 
+    Tree;
     class TreeNode{
     public:
         TreeNode(int val);       
@@ -8,8 +9,8 @@ namespace ariel{
         int getValue();
         int Parent();
         void print();
-        *Tree _left;
-        *Tree _right;
+        Tree* _left=nullptr;
+        Tree* _right=nullptr;
     private:
         int value;
     };  
