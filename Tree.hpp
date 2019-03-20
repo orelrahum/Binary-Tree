@@ -8,8 +8,8 @@ namespace ariel{
         int getValue();
         int Parent();
         void print();
-        Tree* _left;
-        Tree* _right;
+        *Tree _left;
+        *Tree _right;
     private:
         int value;
     };  
