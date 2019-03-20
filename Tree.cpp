@@ -15,26 +15,30 @@ int TreeNode::getValue(){
 bool Ariel::Tree::contains(int i){
     if(_root == NULL) { 
         return false;}
-    return (Tree::left->contains(i) && Tree::right->contains(i))
+    return (Tree::TreeRoot->_left->contains(i) && Tree::TreeRoot->_right->contains(i)
     return true;
 }
 int Tree::root(){
     if (root==NULL){
-        printf("no");
+        throw std::exception();
     }
-    return TreeRoot->getValue();
+    return Tree::TreeRoot->getValue();
 }
 int ariel::Tree::left(int i)
 {
-    if (Tree::contains(i)){
+    if (!Tree::contains(i)){
            throw std::exception();
     }
-    return ariel::Tree::left(i);
+    if (i==Tree::TreeRoot->getValue) return Tree::TreeRoot->_left->TreeRoot->getValue;
+    else if (i<Tree::TreeRoot->getValue) return Tree::TreeRoot->_left->left(i);
+    else return Tree::TreeRoot->_right->left(i);
 }
 int ariel::Tree::right(int i)
 {
     if (Tree::contains(i)){
            throw std::exception();
     }
-    return ariel::Tree::right(i);
+    if (i==Tree::TreeRoot->getValue) return Tree::TreeRoot->_right->TreeRoot->getValue;
+    else if (i<Tree::TreeRoot->getValue) return Tree::TreeRoot->_left->left(i);
+    else return Tree::TreeRoot->_right->right(i);
 }
