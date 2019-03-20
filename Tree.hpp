@@ -4,30 +4,25 @@ namespace ariel{
      class Tree;
     class TreeNode{
     public:
-        TreeNode(int val);       
+        TreeNode(int i);       
         ~TreeNode();
-        int getValue();
-        int Parent();
-        void print();
+        int value;
         Tree* _left;
         Tree* _right;
-    private:
-        int value;
     };  
     class Tree{
     public:
         Tree();
         ~Tree();
-        void insert(int i);
-        void remove(int i);
         int size();
         bool contains(int i);
         int root();
         int parent(int i);
         int left(int i);
         int right(int i);
-        void print();
-
+        int print();
+        int insert(int i);
+        int remove(int i);
 
     private: 
         TreeNode* TreeRoot;   
