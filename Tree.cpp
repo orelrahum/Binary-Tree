@@ -9,6 +9,14 @@ Tree::Tree(){
 Tree::~Tree(){
     delete TreeRoot;
 }
+ariel::TreeNode::TreeNode(int i){
+    TreeNode::value=i;
+}
+TreeNode::~TreeNode(){
+    TreeNode::_left=nullptr;
+    TreeNode::_right=nullptr;
+
+}
 bool ariel::Tree::contains(int i){
     if(Tree::TreeRoot == NULL) { 
         return false;}
@@ -65,11 +73,4 @@ int Tree::insert (int i){
 }
 int Tree::remove (int i){
     return 1;
-}
-ariel::TreeNode::TreeNode(int i){
-    TreeNode::value=i;
-}
-TreeNode::~TreeNode(){
-    TreeNode::_left->~Tree();
-    TreeNode::_right->~Tree();
 }

@@ -6,9 +6,10 @@ namespace ariel{
     public:
         TreeNode(int i);       
         ~TreeNode();
-        int value;
+        int getValue();
         Tree* _left;
         Tree* _right;
+        int value;
     };  
     class Tree{
     public:
