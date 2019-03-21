@@ -60,7 +60,7 @@ int Tree::parent (int i){
 }
 int Tree::size (){
     static int count=0;
-    if (TreeRoot!=NULL){
+    if (TreeRoot==NULL){
     return count;}
     count ++;
     return Tree::TreeRoot->_left && TreeRoot->_right;
