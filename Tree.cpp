@@ -20,18 +20,20 @@ TreeNode::~TreeNode(){
 bool ariel::Tree::contains(int i){
     if(Tree::TreeRoot == NULL) { 
         return false;}
-    Tree::TreeRoot->_left->contains(i) && Tree::TreeRoot->_right->contains(i);
+    else{
+        Tree::TreeRoot->_left->contains(i) && Tree::TreeRoot->_right->contains(i);}
+        
     return true;
 }
 int Tree::root(){
     if (Tree::TreeRoot==NULL){
-        throw std::exception();
+        return 0;
     }
     return Tree::TreeRoot->value;
 }
 int ariel::Tree::left(int i){
     if (!Tree::contains(i)){
-           throw std::exception();
+           return -1;
     }
     if (i==Tree::TreeRoot->value) return Tree::TreeRoot->_left->TreeRoot->value;
     else if (i<Tree::TreeRoot->value) return Tree::TreeRoot->_left->left(i);
@@ -39,7 +41,7 @@ int ariel::Tree::left(int i){
 }
 int ariel::Tree::right(int i){
     if (!Tree::contains(i)){
-           throw std::exception();
+           return -1;
     }
     if (i==Tree::TreeRoot->value) return Tree::TreeRoot->_right->TreeRoot->value;
     else if (i<Tree::TreeRoot->value) return Tree::TreeRoot->_left->left(i);
@@ -47,7 +49,7 @@ int ariel::Tree::right(int i){
 }
 int Tree::parent (int i){
     if (!Tree::contains(i)){
-           throw std::exception();
+           return -1;
     }
     if (Tree::TreeRoot->value<i){
         if (Tree::TreeRoot->value==i) return Tree::TreeRoot->value;
