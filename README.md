@@ -1,7 +1,9 @@
 # Binary-Tree
 An implementation of the binary search tree in C++.
 
-**Important:** some of this code is based on Cormen's Introduction to Algorithms and Open Data Structures code and content/info about trees. I'm really thankful for their effort on writing their books and this repository wouldn't have all these methods if it weren't for them.
+**Purpose:** In this repository we create a class named *Tree* that represents a binary search tree where numbers are added to the tree in ascending order. 
+
+**Other classes:** 
 
 **Links:**
 
