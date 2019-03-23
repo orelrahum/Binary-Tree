@@ -25,7 +25,7 @@ An implementation of the binary search tree in C++.
 
 * The `remove()` method gets a value i and removes the node that contains the value passed as argument from its tree;
 
-* The `root` method returns the value that holds the first node in tree; the root of the tee.
+* The `root()` method returns the value that holds the first node in tree; the root of the tee.
 
 * The `size()` method returns the quantity of nodes in the tree.
 
