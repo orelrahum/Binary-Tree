@@ -15,24 +15,19 @@ An implementation of the binary search tree in C++.
 
 **Methods:**
 
-* The`parent()` method gets a value (i) and returns the value that "sits" before this value in the tree; it's parent.
+* The `parent()` method gets a value (i) and returns the value that "sits" before this value in the tree; it's parent.
 
 * The `left()` and `right()` methods get a value i and return the value at their left/right in the tree, respectively.  
 
-* The `find()` method searches for the node that contains the int passed as argument. If found, returns it. If not, returns the node that would be its parent if the searched item existed at that moment;
+* The `insert()` method gets a value i and inserts a new node that holds the value in the tree, according to the order.
 
-* The `add()` method uses `find()` to get to the place where the new node should be added. If a node already has the int passed as argument, it ignores it and doesn't add a thing (*so there are no duplicates*). If the new node is smaller than the current being looked at, it goes to the left; if it's greater, it goes to the right;
+* The `contains()` method is a boolean method that gets a value i and returns true if the value is somewhere in the tree and false if it's not in it.
 
 * The `remove()` method gets a value i and removes the node that contains the value passed as argument from its tree;
 
-* The `min()` and `max()` methods return the node that holds the minimum and maximum values of the tree rooted at the object calling it;
+* The `root` method returns the value that holds the first node in tree; the root of the tee.
 
-* The `predecessor()` and `successor()` methods return the predecessor (`max()` of its left child) and successor (`min()` of the right child) of the object calling it. If the respective child doesn't exist, returns itself;
+* The `size()` method returns the quantity of nodes in the tree.
 
-* The `size()` method returns the quantity of nodes in the (sub-)tree rooted at the object calling it;
+* The `print()` methods prints the entire tree.
 
-* The `depth()` returns the length of the path from the object calling it to the root of the tree. If called from a Tree object, will return the height of the tree, as it doesn't make sense to calculate the depth of the root and the total depth of the tree is equal to its height;
-
-* And the `height()` returns the length of the path from the object calling it to the farthest descendant/leaf;
-
-* Finally, the `inorderWalk()` method prints all the nodes in ascending order. Now that print() is gone (its existence was kinda redundant), I made it a little more verbose;
