@@ -15,13 +15,15 @@ An implementation of the binary search tree in C++.
 
 **Methods:**
 
-* `p`, `left` and `right` are the parent node and left and right children, respectively. `key` is the information that node holds;
+* The`parent()` method gets a value (i) and returns the value that "sits" before this value in the tree; it's parent.
+
+* The `left()` and `right()` methods get a value i and return the value at their left/right in the tree, respectively.  
 
 * The `find()` method searches for the node that contains the int passed as argument. If found, returns it. If not, returns the node that would be its parent if the searched item existed at that moment;
 
 * The `add()` method uses `find()` to get to the place where the new node should be added. If a node already has the int passed as argument, it ignores it and doesn't add a thing (*so there are no duplicates*). If the new node is smaller than the current being looked at, it goes to the left; if it's greater, it goes to the right;
 
-* The `remove()` method uses `transplant()` (that performs a swap between nodes) to remove the node that contains the int passed as argument from its tree;
+* The `remove()` method gets a value i and removes the node that contains the value passed as argument from its tree;
 
 * The `min()` and `max()` methods return the node that holds the minimum and maximum values of the tree rooted at the object calling it;
 
