@@ -5,8 +5,8 @@ An implementation of the binary search tree in C++.
 
 **Links:**
 
-* [Introduction to Algorithms, by Cormen et al](http://www.mitpress.mit.edu/books/introduction-algorithms)
-* [Open Data Structures](http://www.opendatastructures.org)
+* [Binary Search Tree](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)
+* [Cplusplus-BST](http://www.cplusplus.com/forum/beginner/1276/)
 
 **Some info:**
 
