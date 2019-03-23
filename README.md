@@ -4,9 +4,9 @@ An implementation of the binary search tree in C++.
 **Purpose:** In this repository we create a class named *Tree* that represents a binary search tree where numbers are added to the tree in ascending order. 
 
 **Other files:** 
-...*TreeDemo*: Demo program for the exercise on binary trees
-...*TreeTest*: Examples of automatic tests program for the exercise on binary trees 
-...*Makefile*: Bash script to execute the program with all of its classes
+1.*TreeDemo*: Demo program for the exercise on binary trees
+2.*TreeTest*: Examples of automatic tests program for the exercise on binary trees 
+3.*Makefile*: Bash script to execute the program with all of its classes
 
 **Links:**
 
