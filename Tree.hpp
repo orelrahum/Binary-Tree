@@ -18,13 +18,15 @@ public:
     int left(int i);
     int right(int i);
     void print();
+    TreeNode* _root;
 private:
-TreeNode* _root;
+
 
 };
 
 class TreeNode{
 public:
+    int i;
     TreeNode(int value);
     ~TreeNode();
     int getValue();

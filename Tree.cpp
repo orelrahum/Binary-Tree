@@ -23,20 +23,19 @@ void TreeNode::setValue(int i){
     value=i;
 }
 void Tree::insert(int i) {
-    if(contains(i)) {throw std::exception();}//throws already exsists exception
-    if(_root == nullptr) {
-        TreeNode lala= new TreeNode(i);
-        _root=&lala;
-        return;
-    } 
-    // if (i<_root->getValue()){
-    //     _root->_left->insert(i);
-    // }
-    // else{
-    //     _root->_right->insert(i);
-    // }
-    // return ;
- }
+    return;
+}
+// TreeNode* TreeNode::insert (int i){ 
+//     if(i<getValue()){
+//         if(_left== NULL) _left->_root = new TreeNode(i);
+//         else _left->_root =_left->_root->insert(i);
+//         }
+//     else{
+//             if(_right == NULL) _right->_root = new TreeNode(i);
+//             else _right->_root= _right->_root->insert(i);
+//         }
+//     return this;
+//     }
 void Tree::remove(int i){
 }
 
