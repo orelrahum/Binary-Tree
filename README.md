@@ -29,5 +29,5 @@ An implementation of the binary search tree in C++.
 
 * The `size()` method returns the quantity of nodes in the tree.
 
-* The `print()` methods prints the entire tree.
+* The `print()` method prints the entire tree.
 
