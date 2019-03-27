@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Tree.hpp"
 using namespace ariel;
-
+static int count=0;
 Tree::Tree(){
-    _root=NULL;
+    _root=nullptr;
     return;
 }
 Tree::~Tree(){
@@ -22,31 +22,59 @@ int TreeNode::getValue(){
 void TreeNode::setValue(int i){
     value=i;
 }
-void Tree::insert(int i) {
-    return;
+Tree& Tree::insert(int i) {
+    if(contains(i)) {throw std::exception();}
+    if (_root==NULL){
+    _root=new TreeNode(i);
+    return *this;
+    }
+    if(i<_root->getValue()){
+        if(_root->_left==NULL) {
+            _root->_left=new Tree();
+            _root->_left->_root=new TreeNode(i);
+            return *this;
+            }
+        else _root->_left->insert(i);
+        }
+    else{
+            if(_root->_right == NULL) {
+                _root->_right=new Tree();
+                _root->_right->_root=new TreeNode(i);
+                return *this;}
+            else _root->_right->insert(i);
+            
+    }
+    return *this;
 }
-// TreeNode* TreeNode::insert (int i){ 
-//     if(i<getValue()){
-//         if(_left== NULL) _left->_root = new TreeNode(i);
-//         else _left->_root =_left->_root->insert(i);
-//         }
-//     else{
-//             if(_right == NULL) _right->_root = new TreeNode(i);
-//             else _right->_root= _right->_root->insert(i);
-//         }
-//     return this;
-//     }
-void Tree::remove(int i){
+
+Tree& Tree::remove(int i){
+    if(!contains(i)) {throw std::exception();
+    }
+    delete _root;
+    delete _root->_left;
+    delete _root->_right;
+    // TreeNode* runner=_root->getByValue(i);
+    // delete runner->_left;
+    // delete runner->_right;
+    // delete runner;
+    return *this;
 }
+TreeNode* TreeNode::getByValue(int i){
+    if (i==getValue()){return this;}
+    else if (i<getValue()) { return _left->_root->getByValue(i);}
+    else return _right->_root->getByValue(i);
+    }
 
 
 int Tree::size(){
-    static int count=0;
+    
     if (_root==NULL){
         return count;
     }
     count++;
-    return _root->_left->size() && _root->_right->size();
+    if (_root->_left!=NULL){_root->_left->size() ;}
+    if (_root->_right!=NULL){_root->_right->size();}
+    return count;
 }
 
 bool Tree::contains(int i){
@@ -72,9 +100,9 @@ int Tree::parent(int i){
     return 1;
 }
 int Tree::left(int i){
-    if(!Tree::contains(i)) {return -1;}
+    if(!Tree::contains(i)) {throw std::exception();}
     if(_root->getValue()==i){
-        if (_root->_left->_root==NULL){return -1;}
+        if (_root->_left->_root==nullptr){throw std::exception();}
         return _root->_left->_root->getValue();
     }
     else if(_root->getValue() < i) {return _root->_right->left(i);}
@@ -82,9 +110,9 @@ int Tree::left(int i){
 }
 
 int Tree::right(int i){
-    if(!Tree::contains(i)) {return -1;}
+    if(!Tree::contains(i)) {throw std::exception();}
     if(_root->getValue()==i){
-        if (_root->_right->_root==NULL){return -1;}
+        if (_root->_right->_root==nullptr){throw std::exception();}
         return _root->_right->_root->getValue();
     }
     else if(_root->getValue() < i) {return _root->_right->right(i);}

@@ -9,8 +9,8 @@ class Tree{
 public:
     Tree(); 
     ~Tree(); 
-    void insert(int i);
-    void remove(int i);
+    Tree& insert(int i);
+    Tree& remove(int i);
     int size();
     bool contains(int i);
     int root();
@@ -31,6 +31,7 @@ public:
     ~TreeNode();
     int getValue();
     void setValue(int i);
+    TreeNode* getByValue(int i);
     Tree* _left;
     Tree* _right;
 private:
