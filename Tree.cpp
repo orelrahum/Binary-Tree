@@ -84,16 +84,22 @@ Tree& Tree::remove(int i){
         if (_root->_left==NULL && _root->_right==NULL){
             _root=NULL; 
             treeSize--;
+            return *this;
             }
         else if (_root->_left==NULL){
             _root=_root->_right->_root;
-            treeSize--;}
+            treeSize--;
+            return *this;}
         else if (_root->_right==NULL){
             _root=_root->_left->_root;
             treeSize--;
+            return *this;
             }
     }
-   // Tree*runner= _root->_left->getIndex(i);
+    if (_root->getValue()<i){
+        if (_root->_right->_root!=NULL){return _root->_right->remove(i);}}
+    if (_root->getValue()>i){
+        if (_root->_left->_root!=NULL){return _root->_left->remove(i);}}
 
     return *this;
 }
