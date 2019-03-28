@@ -123,24 +123,32 @@ int Tree::left(int i){
 
 int Tree::parent(int i){
     if(!Tree::contains(i)) {throw std::exception();}
+    //if (_root->_left->_root==NULL || _root->_right->_root==NULL){ throw std::exception();}
     if (_root->_left->_root->getValue()==i){
         return _root->getValue();
     }
     if (_root->_right->_root->getValue()==i){
         return _root->getValue();
     }
-    if (_root->_left->_root->getValue()<i){
-        return _root->_left->_root->_right->parent(i);
+    if (_root->_left->_root->getValue()<i && _root->_left->_root!=NULL){
+            if (_root->_left->_root->_left->_root->getValue()<i){
+            return _root->_left->_root->_right->parent(i);
     }
-    if (i<_root->_left->_root->getValue()){
+        if (i<_root->_left->_root->getValue()){
         return _root->_left->_root->_left->parent(i);
     }
+    }
+    else if (_root->getValue()<i && _root->_right->_root!=NULL)
+    {
         if (_root->_right->_root->getValue()<i){
         return _root->_right->_root->_right->parent(i);
     }
     if (i<_root->_right->_root->getValue()){
         return _root->_right->_root->_left->parent(i);
     }
+    }
+    
+
     return -1;
 }
 void Tree::print(){
