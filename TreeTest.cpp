@@ -51,7 +51,7 @@ int main() {
   .CHECK_EQUAL (mytree.size(), 7)
   .CHECK_EQUAL (mytree.root(), 9)
   .CHECK_EQUAL (mytree.parent(5), 6)
- // .CHECK_EQUAL (mytree.parent(8), 6)
+  .CHECK_EQUAL (mytree.parent(8), 6)
   .CHECK_EQUAL (mytree.left(9), 6)
   .CHECK_EQUAL (mytree.right(9), 11)
   .CHECK_THROWS(mytree.insert(11))
