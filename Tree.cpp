@@ -132,37 +132,15 @@ int Tree::parent(int i){
     if (i<_root->getValue()){
         if (_root->_left->_root!=NULL){
             if (_root->_left->_root->getValue()==i){return _root->getValue();}
-            else if (_root->_left->_root->getValue()<i){return _root->_left->_root->_right->parent(i);}
-            else if (_root->_left->_root->getValue()>i){return _root->_left->_root->_left->parent(i);}    
+            else {return _root->_left->parent(i);} 
         }
     }
     if (_root->getValue()<i){
         if (_root->_right->_root!=NULL){
             if (_root->_right->_root->getValue()==i){return _root->getValue();}
-            else if (_root->_right->_root->getValue()<i){return _root->_right->_root->_right->parent(i);}
-            else if (_root->_right->_root->getValue()>i){return _root->_right->_root->_left->parent(i);}    
+            else {return _root->_right->parent(i);}
         }
     }
-    // if (_root->_right->_root!=NULL)
-    // if (_root->_right->_root!=NULL){
-    // if (_root->_right->_root->getValue()==i){
-    //     return _root->getValue();
-    //     }
-    // }
-
-    //     if (i<_root->_left->_root->getValue()){
-    //     return _root->_left->_root->_left->parent(i);
-    // }
-    // }
-    // else if (_root->getValue()<i && _root->_right->_root!=NULL)
-    // {
-    //     if (_root->_right->_root->getValue()<i){
-    //     return _root->_right->_root->_right->parent(i);
-    // }
-    // if (i<_root->_right->_root->getValue()){
-    //     return _root->_right->_root->_left->parent(i);
-    // }
-    // }
     return -1;
 }
 void Tree::print(){
