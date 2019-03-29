@@ -52,14 +52,14 @@ Tree& Tree::insert(int i) {
     treeSize++;
     return *this;
     }
-    if(i<_root->getValue()){
+    else if(i<_root->getValue()){
         if(_root->_left==NULL) {
             _root->_left=new Tree();
             _root->_left->_root=new TreeNode(i);
             treeSize++;
             return *this;
             }
-        else _root->_left->insert(i);
+        else return _root->_left->insert(i);
         }
     else{
             if(_root->_right == NULL) {
@@ -67,7 +67,7 @@ Tree& Tree::insert(int i) {
                 _root->_right->_root=new TreeNode(i);
                 treeSize++;
                 return *this;}
-            else _root->_right->insert(i);
+            else return  _root->_right->insert(i);
             
     }
     return *this;
