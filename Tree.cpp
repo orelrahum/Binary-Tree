@@ -151,12 +151,11 @@ int Tree::parent(int i){
     return -1;
 }
 void Tree::print(){
-    if (_root->_left!=NULL){_root->_left->print() ;}
     if (_root!=NULL){
+        if (_root->_left!=NULL){_root->_left->print() ;}
         cout<<_root->getValue()<<",";
+     if (_root->_right!=NULL){_root->_right->print();}
     }
-    if (_root->_right!=NULL){_root->_right->print();}
-
 }
 
 
