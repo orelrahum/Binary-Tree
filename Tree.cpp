@@ -114,11 +114,13 @@ int Tree::right(int i){
         else return _root->_right->_root->getValue();
     }
     else if(_root->getValue() < i) {
-        if (_root->_right!=NULL) {return _root->_right->right(i);}
+        if (_root->_right==NULL) {throw std::exception();}
+        else {return _root->_right->right(i);}
+    }
     else {
-        if (_root->_left!=NULL){
-            if (_root->_left!=NULL){return _root->_left->right(i);}}}
-}
+        if (_root->_left!=NULL){throw std::exception();}
+        else {return _root->_left->right(i);}
+        }
 return -1;
 }
 int Tree::left(int i){
@@ -136,6 +138,7 @@ int Tree::left(int i){
 
 int Tree::parent(int i){
     if(!Tree::contains(i)) {throw std::exception();}
+     if (i==_root->getValue()){throw std::exception();}
     if (i<_root->getValue()){
         if (_root->_left->_root!=NULL){
             if (_root->_left->_root->getValue()==i){return _root->getValue();}
@@ -154,7 +157,7 @@ void Tree::print(){
     if (_root!=NULL){
         if (_root->_left!=NULL){_root->_left->print() ;}
         cout<<_root->getValue()<<",";
-     if (_root->_right!=NULL){_root->_right->print();}
+        if (_root->_right!=NULL){_root->_right->print();}
     }
 }
 
