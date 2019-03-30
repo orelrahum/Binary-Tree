@@ -18,6 +18,7 @@ namespace ariel
             int left(int i);
             int parent(int i);
             void print();
+            void printHelp();
         private:
             TreeNode* _root;
     };

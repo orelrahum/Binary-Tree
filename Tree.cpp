@@ -72,7 +72,7 @@ Tree& Tree::insert(int i) {
 }
 
 Tree& Tree::insertTree(Tree* addTree) {
-    if(addTree->contains(_root->getValue())) {throw std::exception();}
+    // if(contains(addTree->_root->getValue())) {throw std::exception();}
     if (_root==NULL){
     _root=addTree->_root;
     return *this;
@@ -109,9 +109,10 @@ Tree& Tree::remove(int i){
             return *this;
             }
         else if (_root->_left!=NULL && _root->_right!=NULL){
+            Tree* tempLeft= _root->_left;
             _root=_root->_right->_root;
-            this->insertTree(_root->_left);
-        }
+            insertTree(tempLeft);
+            return *this;}
     }
     if (_root->getValue()<i){
         if (_root->_right->_root!=NULL){return _root->_right->remove(i);}}
@@ -188,11 +189,17 @@ int Tree::parent(int i){
     }
     return -1;
 }
+
 void Tree::print(){
+this->printHelp();
+cout<<""<<endl;
+}
+
+void Tree::printHelp(){
     if (_root!=NULL){
-        if (_root->_left!=NULL){_root->_left->print() ;}
+        if (_root->_left!=NULL){_root->_left->printHelp() ;}
         cout<<_root->getValue()<<",";
-        if (_root->_right!=NULL){_root->_right->print();}
+        if (_root->_right!=NULL){_root->_right->printHelp();}
     }
 }
 
