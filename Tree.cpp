@@ -1,10 +1,10 @@
 #include <iostream>
 #include "Tree.hpp"
+static int count=0;
 using namespace ariel;
 //counstractor and destructor for Tree
 Tree::Tree(){
-    _root=nullptr;
-    treeSize=0;
+    _root=NULL;
     return;
 }
 Tree::~Tree(){
@@ -49,14 +49,12 @@ Tree& Tree::insert(int i) {
     if(contains(i)) {throw std::exception();}
     if (_root==NULL){
     _root=new TreeNode(i);
-    treeSize++;
     return *this;
     }
     else if(i<_root->getValue()){
         if(_root->_left==NULL) {
             _root->_left=new Tree();
             _root->_left->_root=new TreeNode(i);
-            treeSize++;
             return *this;
             }
         else return _root->_left->insert(i);
@@ -65,7 +63,6 @@ Tree& Tree::insert(int i) {
             if(_root->_right == NULL) {
                 _root->_right=new Tree();
                 _root->_right->_root=new TreeNode(i);
-                treeSize++;
                 return *this;}
             else return  _root->_right->insert(i);
             
@@ -83,16 +80,13 @@ Tree& Tree::remove(int i){
     if (_root->getValue()==i){
         if (_root->_left==NULL && _root->_right==NULL){
             _root=NULL; 
-            treeSize--;
             return *this;
             }
         else if (_root->_left==NULL){
             _root=_root->_right->_root;
-            treeSize--;
             return *this;}
         else if (_root->_right==NULL){
             _root=_root->_left->_root;
-            treeSize--;
             return *this;
             }
     }
@@ -105,7 +99,24 @@ Tree& Tree::remove(int i){
 }
 
 int Tree::size(){
-    return treeSize;
+    if (_root==NULL){
+        return 0;
+    }
+    count++;
+    if (_root->_left!=NULL){int left=_root->_left->sizehelp() ;}
+    if (_root->_right!=NULL){int right=_root->_right->sizehelp();}
+    int temp=count;
+    count=0;
+    return temp;
+}
+int Tree::sizehelp(){
+    if (_root==NULL){
+        return count;
+    }
+    count++;
+    if (_root->_left!=NULL){_root->_left->sizehelp() ;}
+    if (_root->_right!=NULL){_root->_right->sizehelp();}
+    return count;
 }
 int Tree::right(int i){
     if(!Tree::contains(i)) {throw std::exception();}

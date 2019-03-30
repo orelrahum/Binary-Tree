@@ -13,13 +13,13 @@ namespace ariel
             Tree* getIndex(int i);
             Tree& remove(int i);//need fix when we have 2 child
             int size();// need fix when we have more then 3 index
+            int sizehelp();
             int right(int i);
             int left(int i);
             int parent(int i);//need fix
             void print();
         private:
             TreeNode* _root;
-            int treeSize;
     };
 
     class TreeNode{
