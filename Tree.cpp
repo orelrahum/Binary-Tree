@@ -35,19 +35,21 @@ bool Tree::contains(int i){
     if (_root==NULL){return false;}
     if (_root->getValue()==i){return true;}
     else if (i<_root->getValue()){
-        if (_root->_left==NULL){return false;}
-        else return _root->_left->contains(i);
-    }
+         if (_root->_left==NULL){return false;}
+         else return _root->_left->contains(i);
+    return false;
+     }
     else{
         if (_root->_right==NULL){return false;}
         else return _root->_right->contains(i);
-    }
+        return false;
+     }
     return false;
 }
 
 
 Tree& Tree::insert(int i) {
-    if(contains(i)) {throw std::exception();}
+//if(contains(i)) {throw std::exception();}
     if (_root==NULL){
     _root=new TreeNode(i);
     return *this;
@@ -56,6 +58,7 @@ Tree& Tree::insert(int i) {
         if(_root->_left==NULL) {
             _root->_left=new Tree();
             _root->_left->_root=new TreeNode(i);
+            
             return *this;
             }
         else return _root->_left->insert(i);
@@ -64,6 +67,7 @@ Tree& Tree::insert(int i) {
             if(_root->_right == NULL) {
                 _root->_right=new Tree();
                 _root->_right->_root=new TreeNode(i);
+                
                 return *this;}
             else return  _root->_right->insert(i);
             
@@ -72,7 +76,7 @@ Tree& Tree::insert(int i) {
 }
 
 Tree& Tree::insertTree(Tree* addTree) {
-    // if(contains(addTree->_root->getValue())) {throw std::exception();}
+    //if(addTree->contains(addTree->_root->getValue())) {return *this;}
     if (_root==NULL){
     _root=addTree->_root;
     return *this;
@@ -93,7 +97,6 @@ Tree& Tree::insertTree(Tree* addTree) {
     return *this;
 }
 
-
 Tree& Tree::remove(int i){
     if(!contains(i)) {throw std::exception();}
     if (_root->getValue()==i){
@@ -111,9 +114,9 @@ Tree& Tree::remove(int i){
         else if (_root->_left!=NULL && _root->_right!=NULL){
             Tree* tempLeft= _root->_left;
             _root=_root->_right->_root;
-            insertTree(tempLeft);
+           insertTree(tempLeft);
             return *this;}
-    }
+        }
     if (_root->getValue()<i){
         if (_root->_right->_root!=NULL){return _root->_right->remove(i);}}
     else if (_root->getValue()>i){
@@ -143,8 +146,9 @@ int Tree::sizehelp(){
     if (_root->_right!=NULL){_root->_right->sizehelp();}
     return count;
 }
+
 int Tree::right(int i){
-    if(!Tree::contains(i)) {throw std::exception();}
+     if(!Tree::contains(i)) {throw std::exception();}
     if(_root->getValue()==i){
         if (_root->_right->_root==NULL){throw std::exception();}
         else return _root->_right->_root->getValue();
@@ -157,7 +161,7 @@ int Tree::right(int i){
         if (_root->_left!=NULL){throw std::exception();}
         else {return _root->_left->right(i);}
         }
-return -1;
+ return -1;
 }
  int Tree::left(int i){
     if(!Tree::contains(i)) {throw std::exception();}
@@ -178,7 +182,7 @@ return -1;
 
 int Tree::parent(int i){
     if(!Tree::contains(i)) {throw std::exception();}
-     if (i==_root->getValue()){throw std::exception();}
+    if (i==_root->getValue()){throw std::exception();}
     if (i<_root->getValue()){
         if (_root->_left->_root!=NULL){
             if (_root->_left->_root->getValue()==i){return _root->getValue();}
@@ -193,7 +197,6 @@ int Tree::parent(int i){
     }
     return -1;
 }
-
 void Tree::print(){
 this->printHelp();
 cout<<""<<endl;
@@ -206,5 +209,4 @@ void Tree::printHelp(){
         if (_root->_right!=NULL){_root->_right->printHelp();}
     }
 }
-
 
