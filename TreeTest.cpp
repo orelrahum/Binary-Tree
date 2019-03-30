@@ -64,7 +64,7 @@ int main() {
   .CHECK_OK    (mytree.insert(4))
   .CHECK_EQUAL (mytree.contains(4), true)
   .CHECK_OK    (mytree.insert(2))
-  .CHECK_EQUAL (mytree.size(), 7)
+  .CHECK_EQUAL (mytree.size(), 8)
   .CHECK_OK    (mytree.print())
    .print();
   cout << "You have " << tc.right() << " right answers and " << tc.wrong() << " wrong answers so your grade is " << tc.grade() << ". Great!" << endl;
