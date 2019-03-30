@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Tree.hpp"
 static int count=0;
+using namespace std;
 using namespace ariel;
 //counstractor and destructor for Tree
 Tree::Tree(){
@@ -69,11 +70,29 @@ Tree& Tree::insert(int i) {
     }
     return *this;
 }
-Tree* Tree::getIndex(int i){
-    if (i==_root->getValue()){return this;}
-    else if (i<_root->getValue()) { return _root->_left->getIndex(i);}
-    else return _root->_right->getIndex(i);
+
+Tree& Tree::insertTree(Tree* addTree) {
+    if(addTree->contains(_root->getValue())) {throw std::exception();}
+    if (_root==NULL){
+    _root=addTree->_root;
+    return *this;
     }
+    else if(addTree->_root->getValue()<_root->getValue()){
+        if(_root->_left==NULL) {
+            _root->_left=addTree;
+            return *this;
+            }
+        else return _root->_left->insertTree(addTree);
+        }
+    else{
+            if(_root->_right == NULL) {
+                _root->_right=addTree;
+                return *this;}
+            else return  _root->_right->insertTree(addTree); 
+    }
+    return *this;
+}
+
 
 Tree& Tree::remove(int i){
     if(!contains(i)) {throw std::exception();}
@@ -89,6 +108,10 @@ Tree& Tree::remove(int i){
             _root=_root->_left->_root;
             return *this;
             }
+        else if (_root->_left!=NULL && _root->_right!=NULL){
+            _root=_root->_right->_root;
+            this->insertTree(_root->_left);
+        }
     }
     if (_root->getValue()<i){
         if (_root->_right->_root!=NULL){return _root->_right->remove(i);}}
@@ -109,6 +132,7 @@ int Tree::size(){
     count=0;
     return temp;
 }
+
 int Tree::sizehelp(){
     if (_root==NULL){
         return count;

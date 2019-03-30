@@ -10,13 +10,13 @@ namespace ariel
             int root();
             bool contains(int i);
             Tree& insert(int i);
-            Tree* getIndex(int i);
-            Tree& remove(int i);//need fix when we have 2 child
-            int size();// need fix when we have more then 3 index
+            Tree& insertTree (Tree* addTree);
+            Tree& remove(int i);
+            int size();
             int sizehelp();
             int right(int i);
             int left(int i);
-            int parent(int i);//need fix
+            int parent(int i);
             void print();
         private:
             TreeNode* _root;
