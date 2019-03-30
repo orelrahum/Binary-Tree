@@ -49,7 +49,7 @@ bool Tree::contains(int i){
 
 
 Tree& Tree::insert(int i) {
-//if(contains(i)) {throw std::exception();}
+if(contains(i)) {throw std::exception();}
     if (_root==NULL){
     _root=new TreeNode(i);
     return *this;
