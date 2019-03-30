@@ -150,7 +150,7 @@ int Tree::right(int i){
         else return _root->_right->_root->getValue();
     }
     else if(_root->getValue() < i) {
-        if (_root->_right==NULL) {throw std::exception();}
+        if (_root->_right!=NULL) {throw std::exception();}
         else {return _root->_right->right(i);}
     }
     else {
@@ -159,18 +159,22 @@ int Tree::right(int i){
         }
 return -1;
 }
-int Tree::left(int i){
+ int Tree::left(int i){
     if(!Tree::contains(i)) {throw std::exception();}
     if(_root->getValue()==i){
         if (_root->_left->_root==NULL){throw std::exception();}
         else return _root->_left->_root->getValue();
     }
     else if(_root->getValue() < i) {
-        if (_root->_right!=NULL){return _root->_right->left(i);}}
+        if (_root->_right->_root!=NULL) {throw std::exception();}
+        else {return _root->_right->left(i);}
+    }
     else {
-        if (_root->_left!=NULL)  {return _root->_left->left(i);}}
-        return -1;
-}
+        if (_root->_left->_root!=NULL){throw std::exception();}
+        else {return _root->_left->left(i);}
+        }
+      return -1;
+ }
 
 int Tree::parent(int i){
     if(!Tree::contains(i)) {throw std::exception();}
