@@ -4,13 +4,13 @@ static int count=0;
 using namespace std;
 using namespace ariel;
 //counstractor and destructor for Tree
-ariel::Tree::Tree():_root(NULL) {}
-ariel::Tree::~Tree(){
+Tree::Tree():_root(NULL) {}
+Tree::~Tree(){
   delete _root;
 }
 //counstractor and destructor for TreeNode
-ariel::TreeNode::TreeNode(int i):value(i),_right(NULL),_left(NULL) {}
-ariel::TreeNode::~TreeNode(){
+TreeNode::TreeNode(int i):value(i),_right(NULL),_left(NULL) {}
+TreeNode::~TreeNode(){
   delete _right;
   delete _left;
 }
@@ -67,7 +67,6 @@ Tree& Tree::insert(int i) {
 }
 
 Tree& Tree::insertTree(Tree* addTree) {
-    // if(contains(addTree->_root->getValue())) {throw std::exception();}
     if (_root==NULL){
     _root=addTree->_root;
     return *this;
@@ -136,6 +135,7 @@ int Tree::sizehelp(){
 }
 int Tree::right(int i){
     if(_root->getValue()==i){
+        if (_root->_right==NULL){throw std::exception();}
         if (_root->_right->_root==NULL){throw std::exception();}
         else return _root->_right->_root->getValue();
     }
@@ -152,16 +152,17 @@ return -1;
 }
  int Tree::left(int i){
     if(_root->getValue()==i){
+        if (_root->_left==NULL){throw std::exception();}
         if (_root->_left->_root==NULL){throw std::exception();}
         else return _root->_left->_root->getValue();
     }
     if(!Tree::contains(i)) {throw std::exception();}
     else if(_root->getValue() < i) {
-        if (_root->_right->_root!=NULL) {throw std::exception();}
+        if (_root->_right->_root==NULL) {throw std::exception();}
         else {return _root->_right->left(i);}
     }
     else {
-        if (_root->_left->_root!=NULL){throw std::exception();}
+        if (_root->_left->_root==NULL){throw std::exception();}
         else {return _root->_left->left(i);}
         }
       return -1;
