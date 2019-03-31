@@ -119,7 +119,7 @@ Tree& Tree::remove(int i){
 
 int Tree::size(){
     if (_root==NULL){
-        return 0;
+    throw std::exception();
     }
     count++;
     if (_root->_left!=NULL){int left=_root->_left->sizehelp() ;}
