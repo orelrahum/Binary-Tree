@@ -26,6 +26,20 @@ int main() {
   mytree.insert(10);
   mytree.insert(14);
 
+  ariel::Tree mytree2;  
+  mytree2.insert(9);
+  mytree2.insert(6);
+  mytree2.insert(11);
+  mytree2.insert(5);
+  mytree2.insert(8);
+  mytree2.insert(10);
+  mytree2.insert(14);
+  mytree2.insert(12);
+  mytree2.insert(4);
+  mytree2.insert(1);
+  mytree2.insert(2);
+  mytree2.insert(3);
+
   badkan::TestCase tc("Binary tree");
   tc
   .CHECK_EQUAL (emptytree.size(), 0)
@@ -69,6 +83,8 @@ int main() {
   .CHECK_OK    (mytree.remove(11))
   .CHECK_EQUAL (mytree.size(), 7)
   .CHECK_OK    (mytree.print())
+  .CHECK_EQUAL (mytree.right(4), 2)
+  .CHECK_OK    (mytree2.print())
    .print();
   cout << "You have " << tc.right() << " right answers and " << tc.wrong() << " wrong answers so your grade is " << tc.grade() << ". Great!" << endl;
 }

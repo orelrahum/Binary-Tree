@@ -135,37 +135,39 @@ int Tree::sizehelp(){
     return count;
 }
 int Tree::right(int i){
-    if(_root->getValue()==i){
-        if (_root->_right->_root==NULL){throw std::exception();}
-        else return _root->_right->_root->getValue();
-    }
-    if(!contains(i)) {throw std::exception();}
-    else if(_root->getValue() < i) {
-        if (_root->_right->_root!=NULL) {throw std::exception();}
-        else {return _root->_right->right(i);}
-    }
-    else if (i<_root->getValue())  {
-            if (_root->_left->_root!=NULL){throw std::exception();}
-            return _root->_left->right(i);
-        }
-return -1;
-}
- int Tree::left(int i){
-    if(_root->getValue()==i){
-        if (_root->_left->_root==NULL){throw std::exception();}
-        else return _root->_left->_root->getValue();
+    if (_root->getValue()==i){
+        if (_root->_right==NULL){throw std::exception();}
+        return _root->_right->_root->getValue();
     }
     if(!Tree::contains(i)) {throw std::exception();}
-    else if(_root->getValue() < i) {
-        if (_root->_right->_root!=NULL) {throw std::exception();}
-        else {return _root->_right->left(i);}
+    if (i<_root->getValue()){
+        if (_root->_left==NULL){throw std::exception();}
+        return _root->_left->right(i);
     }
-    else {
-        if (_root->_left->_root!=NULL){throw std::exception();}
-        else {return _root->_left->left(i);}
-        }
-      return -1;
- }
+    if (_root->getValue()<i){
+        if (_root->_right==NULL){throw std::exception();}
+        return _root->_right->right(i);
+    }
+return -40;
+}
+
+
+int Tree::left(int i){
+    if (_root->getValue()==i){
+        if (_root->_left==NULL){throw std::exception();}
+        return _root->_left->_root->getValue();
+    }
+    if(!Tree::contains(i)) {throw std::exception();}
+    if (i<_root->getValue()){
+        if (_root->_left->_root==NULL){throw std::exception();}
+        return _root->_left->left(i);
+    }
+    if (_root->getValue()<i){
+        if (_root->_right->_root==NULL){throw std::exception();}
+        return _root->_right->left(i);
+    }
+return -33;
+}
 
 int Tree::parent(int i){
     if(!Tree::contains(i)) {throw std::exception();}
