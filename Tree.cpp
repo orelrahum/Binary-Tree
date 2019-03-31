@@ -141,11 +141,11 @@ int Tree::right(int i){
         else return _root->_right->_root->getValue();
     }
     else if(_root->getValue() < i) {
-        if (_root->_right==NULL) {throw std::exception();}
+        if (_root->_right->_root==NULL) {throw std::exception();}
         //else { _root->_right->right(i);}
     }
-    else {
-        if (_root->_left==NULL){throw std::exception();}
+    else  {
+        if (_root->_left->_root==NULL){throw std::exception();}
         //else { _root->_left->right(i);}
         }
 return -1;
