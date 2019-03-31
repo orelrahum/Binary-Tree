@@ -135,14 +135,15 @@ int Tree::sizehelp(){
     return count;
 }
 int Tree::right(int i){
-    if(!contains(i)) {throw std::exception();}
+    
     if(_root->getValue()==i){
         if (_root->_right->_root==NULL){throw std::exception();}
         else return _root->_right->_root->getValue();
     }
+    if(!contains(i)) {throw std::exception();}
     else if(_root->getValue() < i) {
         if (_root->_right->_root==NULL) {throw std::exception();}
-        else { _root->_right->right(i);}
+        else {return _root->_right->right(i);}
     }
     else if (i<_root->getValue())  {
         if (_root->_left->_root==NULL){throw std::exception();}
@@ -157,7 +158,7 @@ return -1;
         else return _root->_left->_root->getValue();
     }
     else if(_root->getValue() < i) {
-        if (_root->_right->_root==NULL) {throw std::exception();}
+        if (_root->_right->_root!=NULL) {throw std::exception();}
         else {return _root->_right->left(i);}
     }
     else {
