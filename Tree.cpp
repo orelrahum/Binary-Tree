@@ -118,9 +118,7 @@ Tree& Tree::remove(int i){
 }
 
 int Tree::size(){
-    if (_root==NULL){
-    throw std::exception();
-    }
+    if (_root==NULL){return 0;}
     count++;
     if (_root->_left!=NULL){int left=_root->_left->sizehelp() ;}
     if (_root->_right!=NULL){int right=_root->_right->sizehelp();}
@@ -130,44 +128,42 @@ int Tree::size(){
 }
 
 int Tree::sizehelp(){
-    if (_root==NULL){
-        return count;
-    }
+    if (_root==NULL){return count;}
     count++;
     if (_root->_left!=NULL){_root->_left->sizehelp() ;}
     if (_root->_right!=NULL){_root->_right->sizehelp();}
     return count;
 }
 int Tree::right(int i){
-    if(!Tree::contains(i)) {throw std::exception();}
-    if(_root->getValue()==i){
-        if (_root->_right->_root==NULL){throw std::exception();}
-        else return _root->_right->_root->getValue();
-    }
-    else if(_root->getValue() < i) {
-        if (_root->_right!=NULL) {throw std::exception();}
-        else {return _root->_right->right(i);}
-    }
-    else {
-        if (_root->_left!=NULL){throw std::exception();}
-        else {return _root->_left->right(i);}
-        }
+    // if(!Tree::contains(i)) {throw std::exception();}
+    // if(_root->getValue()==i){
+    //     if (_root->_right->_root==NULL){throw std::exception();}
+    //     else return _root->_right->_root->getValue();
+    // }
+    // else if(_root->getValue() < i) {
+    //     if (_root->_right!=NULL) {throw std::exception();}
+    //     else {return _root->_right->right(i);}
+    // }
+    // else {
+    //     if (_root->_left!=NULL){throw std::exception();}
+    //     else {return _root->_left->right(i);}
+    //     }
 return -1;
 }
  int Tree::left(int i){
-    if(!Tree::contains(i)) {throw std::exception();}
-    if(_root->getValue()==i){
-        if (_root->_left->_root==NULL){throw std::exception();}
-        else return _root->_left->_root->getValue();
-    }
-    else if(_root->getValue() < i) {
-        if (_root->_right->_root!=NULL) {throw std::exception();}
-        else {return _root->_right->left(i);}
-    }
-    else {
-        if (_root->_left->_root!=NULL){throw std::exception();}
-        else {return _root->_left->left(i);}
-        }
+    // if(!Tree::contains(i)) {throw std::exception();}
+    // if(_root->getValue()==i){
+    //     if (_root->_left->_root==NULL){throw std::exception();}
+    //     else return _root->_left->_root->getValue();
+    // }
+    // else if(_root->getValue() < i) {
+    //     if (_root->_right->_root!=NULL) {throw std::exception();}
+    //     else {return _root->_right->left(i);}
+    // }
+    // else {
+    //     if (_root->_left->_root!=NULL){throw std::exception();}
+    //     else {return _root->_left->left(i);}
+    //     }
       return -1;
  }
 
