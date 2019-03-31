@@ -4,20 +4,15 @@ static int count=0;
 using namespace std;
 using namespace ariel;
 //counstractor and destructor for Tree
-Tree::Tree(){
-    _root=NULL;
-    return;
-}
-Tree::~Tree(){
-    delete _root;
+ariel::Tree::Tree():_root(NULL) {}
+ariel::Tree::~Tree(){
+  delete _root;
 }
 //counstractor and destructor for TreeNode
-TreeNode::TreeNode(int i){
-    value=i;
-}
-TreeNode::~TreeNode(){
-delete _right;
-delete _left;
+ariel::TreeNode::TreeNode(int i):value(i),_right(NULL),_left(NULL) {}
+ariel::TreeNode::~TreeNode(){
+  delete _right;
+  delete _left;
 }
 //fuctions in TreeNode
 int TreeNode::getValue(){
