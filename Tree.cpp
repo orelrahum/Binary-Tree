@@ -161,7 +161,7 @@ return -1;
         else {return _root->_right->left(i);}
     }
     else {
-        if (_root->_left->_root!=NULL){return 9;}
+        if (_root->_left->_root!=NULL){throw std::exception();}
         else {return _root->_left->left(i);}
         }
       return -1;
