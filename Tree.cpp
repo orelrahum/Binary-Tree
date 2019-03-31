@@ -157,12 +157,12 @@ return -1;
         else return _root->_left->_root->getValue();
     }
     else if(_root->getValue() < i) {
-        if (_root->_right->_root!=NULL) {throw std::exception();}
-        else {return _root->_right->left(i);}
+        if (_root->_right->_root!=NULL) {return _root->_right->left(i);}
+        else {}
     }
     else {
-        if (_root->_left->_root!=NULL){throw std::exception();}
-        else {return _root->_left->left(i);}
+        if (_root->_left->_root!=NULL){return _root->_left->left(i);}
+        else {}
         }
       return -1;
  }
