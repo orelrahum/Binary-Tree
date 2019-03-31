@@ -145,7 +145,7 @@ int Tree::right(int i){
         else {return _root->_right->right(i);}
     }
     else {
-        if (_root->_left!=NULL){return -3;}
+        if (_root->_left!=NULL){throw std::exception();}
         else {return _root->_left->right(i);}
         }
 return -1;
@@ -161,7 +161,7 @@ return -1;
         else {return _root->_right->left(i);}
     }
     else {
-        if (_root->_left->_root!=NULL){return -1;}
+        if (_root->_left->_root!=NULL){return 9;}
         else {return _root->_left->left(i);}
         }
       return -1;
