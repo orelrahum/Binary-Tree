@@ -157,11 +157,11 @@ return -1;
     }
     if(!Tree::contains(i)) {throw std::exception();}
     else if(_root->getValue() < i) {
-        if (_root->_right->_root==NULL) {throw std::exception();}
+        if (_root->_right->_root!=NULL) {throw std::exception();}
         else {return _root->_right->left(i);}
     }
     else {
-        if (_root->_left->_root!=NULL){throw std::exception();}
+        if (_root->_left->_root==NULL){throw std::exception();}
         else {return _root->_left->left(i);}
         }
       return -1;
